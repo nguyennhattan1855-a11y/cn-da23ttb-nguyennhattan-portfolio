@@ -1,0 +1,56 @@
+/* Gợi ý vị trí nghề nghiệp – chỉ áp dụng trong form thông tin cá nhân. */
+.position-combo { position: relative; }
+.position-combo .form-control { width: 100%; }
+.position-dropdown[hidden] { display: none !important; }
+.position-dropdown {
+    position: absolute;
+    z-index: 120;
+    left: 0;
+    right: 0;
+    top: calc(100% + 4px);
+    max-height: 300px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(15,23,42,.14);
+    padding: 5px;
+}
+.position-group + .position-group { border-top: 1px solid #e2e8f0; }
+.position-group-label {
+    padding: 9px 11px 5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: .02em;
+}
+.position-option {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    border-radius: 7px;
+    padding: 9px 11px;
+    font: inherit;
+    font-size: 14px;
+    text-align: left;
+    color: #1f2937;
+    cursor: pointer;
+}
+.position-option:hover,
+.position-option[aria-selected="true"],
+.position-option:focus-visible {
+    outline: none;
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+.position-empty {
+    padding: 11px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .position-dropdown { max-height: 230px; }
+}

@@ -1,0 +1,185 @@
+/* =====================================================
+   profile.css - Giao diện hồ sơ công khai (u.php, project.php)
+   Hai mẫu: .tpl-classic (một cột, tiêu đề màu) và .tpl-modern (thanh bên).
+   Màu chủ đạo do người dùng chọn, truyền qua biến --accent (thuộc tính style của .pf-page).
+   ===================================================== */
+.pf-body {
+    margin: 0;
+    background: #e2e8f0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1f2937;
+}
+.pf-body * { box-sizing: border-box; }
+
+/* Thanh công cụ phía trên (không nằm trong ảnh/PDF xuất ra) */
+.pf-toolbar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding: 10px 20px; background: #0f172a; color: #fff;
+}
+.pf-toolbar-brand { color: #fff; font-weight: 700; text-decoration: none; }
+.pf-toolbar-note { font-size: 13px; background: #f59e0b; color: #1f2937; padding: 2px 10px; border-radius: 99px; }
+.pf-toolbar-actions { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.pf-btn {
+    font: inherit; font-size: 14px; cursor: pointer; text-decoration: none;
+    background: #2563eb; color: #fff; border: 0; border-radius: 8px; padding: 7px 14px;
+}
+.pf-btn:hover { background: #1d4ed8; }
+.pf-btn-ghost { background: transparent; border: 1px solid rgba(255, 255, 255, 0.4); }
+.pf-btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* Khung hồ sơ */
+.pf-page {
+    --pf-bg: #f1f5f9;
+    max-width: 1080px; margin: 0 auto; background: var(--pf-bg);
+    line-height: 1.6; min-height: 100vh;
+    /* Khai báo phông và màu chữ ngay trên khung hồ sơ để ảnh PNG xuất ra giữ đúng phông */
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1f2937;
+}
+.pf-hero { padding: 44px 32px; }
+.pf-avatar {
+    width: 128px; height: 128px; object-fit: cover; flex-shrink: 0; display: block;
+}
+.pf-avatar-fallback {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; font-weight: 700; background: rgba(255, 255, 255, 0.25); color: inherit;
+}
+.pf-hero h1 { margin: 0; font-size: 34px; line-height: 1.2; }
+.pf-headline { margin: 6px 0 0; font-size: 19px; opacity: 0.95; }
+.pf-location { margin: 4px 0 0; font-size: 15px; opacity: 0.85; }
+
+.pf-layout { display: grid; gap: 20px; padding: 24px 32px 32px; align-items: start; }
+.pf-side, .pf-main { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+
+.pf-card {
+    background: #fff; border-radius: 14px; padding: 22px 24px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+.pf-card h2 {
+    margin: 0 0 14px; font-size: 18px; color: var(--accent-ink, #2563eb);
+    padding-bottom: 8px; border-bottom: 2px solid rgba(var(--accent-rgb, 37, 99, 235), 0.25);
+}
+.pf-sub { margin: 14px 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; }
+.pf-text { margin: 0; color: #374151; overflow-wrap: anywhere; }
+.pf-list { list-style: none; margin: 0; padding: 0; }
+.pf-list li { padding: 5px 0; overflow-wrap: anywhere; }
+.pf-label { display: inline-block; min-width: 76px; font-size: 13px; color: #64748b; }
+.pf-card a { color: var(--accent-ink, #2563eb); }
+
+/* Kỹ năng */
+.pf-chips { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-chips li {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px;
+    padding: 4px 11px; border-radius: 999px;
+    background: #eff6ff; background: rgba(var(--accent-rgb, 37, 99, 235), 0.12);
+    color: #1f2937;
+}
+.pf-chips-small li { font-size: 12.5px; padding: 2px 9px; }
+.pf-dots { display: inline-flex; gap: 2px; }
+.pf-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(var(--accent-rgb, 37, 99, 235), 0.25); }
+.pf-dots i.on { background: var(--accent-ink, #2563eb); }
+
+/* Kinh nghiệm, học vấn */
+.pf-entry { padding: 0 0 16px 16px; margin-bottom: 16px; border-left: 3px solid rgba(var(--accent-rgb, 37, 99, 235), 0.35); }
+.pf-entry:last-child { margin-bottom: 0; padding-bottom: 0; }
+.pf-entry h3 { margin: 0; font-size: 17px; }
+.pf-at { font-weight: 400; color: #64748b; font-size: 15px; }
+.pf-period { margin: 2px 0 6px; font-size: 13.5px; color: #64748b; }
+
+/* Dự án */
+.pf-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+.pf-project { display: flex; flex-direction: column; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; }
+.pf-project-img { width: 100%; height: 150px; object-fit: cover; display: block; background: #f1f5f9; }
+.pf-project-fallback {
+    display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 700;
+    background: var(--accent, #2563eb); color: var(--accent-text, #fff);
+}
+.pf-project-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; }
+.pf-project-body h3 { margin: 0; font-size: 17px; }
+.pf-project-body h3 a { text-decoration: none; }
+.pf-links { margin: 0; display: flex; gap: 14px; font-size: 14px; flex-wrap: wrap; }
+.pf-badge {
+    display: inline-block; vertical-align: middle; margin-left: 6px; font-size: 11px; font-weight: 600;
+    padding: 1px 8px; border-radius: 99px; background: var(--accent, #2563eb); color: var(--accent-text, #fff);
+}
+.pf-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.pf-gallery img { width: 100%; height: 170px; object-fit: cover; border-radius: 10px; display: block; border: 1px solid #e2e8f0; }
+
+.pf-foot { text-align: center; padding: 18px; font-size: 13px; color: #64748b; }
+.pf-layout-single { grid-template-columns: 1fr; }
+.pf-hero-project { padding: 36px 32px; }
+
+/* ---------- Mẫu 1: Cổ điển ---------- */
+.tpl-classic .pf-hero {
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+    background: var(--accent, #2563eb); color: var(--accent-text, #fff);
+}
+.tpl-classic .pf-avatar { border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.75); }
+.tpl-classic .pf-layout { grid-template-columns: 1fr; }
+.tpl-classic .pf-side { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; align-items: start; }
+
+/* ---------- Mẫu 2: Hiện đại ---------- */
+.tpl-modern .pf-hero {
+    display: flex; align-items: center; gap: 28px; text-align: left;
+    background: #fff; color: #111827; border-bottom: 6px solid var(--accent, #2563eb);
+}
+.tpl-modern .pf-avatar { border-radius: 26px; }
+.tpl-modern .pf-avatar-fallback { background: var(--accent, #2563eb); color: var(--accent-text, #fff); }
+.tpl-modern .pf-headline { color: var(--accent-ink, #2563eb); font-weight: 600; opacity: 1; }
+.tpl-modern .pf-location { color: #64748b; }
+.tpl-modern .pf-layout { grid-template-columns: 300px 1fr; }
+.tpl-modern .pf-layout-single { grid-template-columns: 1fr; }
+.tpl-modern .pf-card { border-radius: 10px; border-left: 4px solid var(--accent, #2563eb); }
+.tpl-modern .pf-card h2 { border-bottom: 0; padding-bottom: 0; }
+.tpl-modern .pf-hero-project { display: block; }
+
+/* Thông báo nhỏ khi xuất ảnh */
+.pf-toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px);
+    background: #0f172a; color: #fff; padding: 10px 18px; border-radius: 10px; font-size: 14px;
+    opacity: 0; pointer-events: none; transition: all 0.25s; max-width: 90vw; z-index: 50;
+}
+.pf-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.pf-toast.error { background: #b91c1c; }
+
+/* Khi xuất ảnh: ẩn phần không đưa vào ảnh */
+.pf-exporting [data-export-hide] { display: none !important; }
+
+/* Điện thoại / máy tính bảng */
+@media (max-width: 800px) {
+    .pf-layout, .tpl-modern .pf-layout { grid-template-columns: 1fr; padding: 16px; }
+    .pf-hero { padding: 30px 20px; }
+    .pf-hero h1 { font-size: 27px; }
+    .tpl-modern .pf-hero { flex-direction: column; text-align: center; gap: 16px; }
+    .tpl-classic .pf-side { grid-template-columns: 1fr; }
+}
+
+/* In / lưu PDF: khổ A4, giữ màu, không ngắt giữa thẻ */
+@page { size: A4; margin: 10mm; }
+@media print {
+    .pf-body { background: #fff; }
+    .pf-body, .pf-body * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pf-toolbar, .pf-toast, [data-export-hide] { display: none !important; }
+    .pf-page { max-width: none; min-height: 0; }
+    .pf-hero { padding: 20px 18px; }
+    .pf-layout, .tpl-modern .pf-layout { padding: 14px 6px; gap: 12px; }
+    .tpl-modern .pf-layout { grid-template-columns: 230px 1fr; }
+    .tpl-classic .pf-side { grid-template-columns: 1fr 1fr; }
+    .pf-card { box-shadow: none; border: 1px solid #e2e8f0; padding: 14px 16px; break-inside: avoid; }
+    .pf-entry, .pf-project { break-inside: avoid; }
+    .pf-card h2 { break-after: avoid; }
+}
+
+/* Tên dự án dùng màu chữ trung tính để dễ đọc, không đổi theo màu chủ đạo.
+   Chỉ liên kết hành động và các tiêu đề mục mới dùng màu chủ đạo. */
+.pf-project-body h3,
+.pf-project-body h3 a,
+.pf-project-body h3 a:visited {
+    color: #1f2937;
+}
+.pf-project-body h3 a:hover { text-decoration: underline; }
+
+/* Chế độ xem trước: nội dung chỉ xem, không bấm liên kết hay nút.
+   Iframe vẫn cuộn dọc để xem hết hồ sơ. */
+.pf-page[inert] { cursor: default; }

@@ -1,0 +1,9 @@
+/* Giao diện xem trước ảnh minh họa trước khi tải lên */
+.project-images-preview { display: grid; grid-template-columns: repeat(auto-fill,minmax(155px,1fr)); gap: 12px; margin-top: 12px; }
+.project-image-preview-item { border: 1px solid #dbe2ea; border-radius: 10px; padding: 9px; background: #fff; display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.project-image-preview-item img { display: block; width: 100%; height: 116px; object-fit: cover; border-radius: 6px; background: #eef2f7; }
+.project-image-preview-name { font-size: 12px; overflow-wrap: anywhere; color: #334155; }
+.project-image-remove { margin-top: auto; cursor: pointer; border: 1px solid #dc2626; color: #b91c1c; background: white; border-radius: 7px; padding: 7px 9px; }
+.project-image-remove:hover { background: #fef2f2; }
+.project-images-client-error { color: #b91c1c; font-size: 13px; margin: 6px 0; }
+.project-multi-input { max-width: 100%; }

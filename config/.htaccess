@@ -1,0 +1,2 @@
+# Không cho truy cập trực tiếp qua trình duyệt (Apache 2.4)
+Require all denied
